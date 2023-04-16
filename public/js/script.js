@@ -1,9 +1,17 @@
+
+
 const cardList = [
     {
-        title: 'Kitten 2', image: 'images/kitten-2.png', link: 'About Kitten 2', description: 'Kitten 2 description'
+        title: 'Kitten 2', 
+        image: 'images/kitten-2.png', 
+        link: 'About Kitten 2', 
+        description: 'Kitten 2 description'
     },
     {
-        title: 'Kitten 3', image: 'images/kitten-3.png', link: 'About Kitten 3', description: 'Kitten 3 description'
+        title: 'Kitten 3', 
+        image: 'images/kitten-3.png', 
+        link: 'About Kitten 3', 
+        description: 'Kitten 3 description'
     }
 ];
 
@@ -27,6 +35,7 @@ const submitForm = () => {
     formData.password = $('#password').val();
 
     console.log('form data: ', formData);
+    addCat(formData);
 }
 
 $(document).ready(function(){
@@ -38,3 +47,16 @@ $(document).ready(function(){
         submitForm();
     })
 });
+
+const addCat = (cat) => {
+    $.ajax({
+        url: "",
+        data: cat, 
+        type: 'POST',
+        success: (result) => {
+            alert(result.message);
+            location.reload();
+
+        }
+    });
+}
