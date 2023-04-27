@@ -39,11 +39,10 @@ function dbConnection(collectionName)
 app.post('/api/cats', (req, res) => {
     let cat = req.body;
     insert(cat, (error, result)=>{
-        if(error)
-        {
+        if(error){
             res.json({statusCode:400, message:error});
         }
-        else{
+        else {
             res.json({statusCode:200, data: result, message:'cat successfully added'});
         }
     })
