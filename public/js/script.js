@@ -28,7 +28,7 @@ const getCats = () => {
 
 const addCat = (cat) => {
     $.ajax({
-        url: "api/cats",
+        url: "/api/cats",
         data: cat, 
         type: 'POST',
         success: (result) => {

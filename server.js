@@ -4,8 +4,8 @@ var app = express();
 //var port = process.env.port || 3000;
 
 const {MongoClient} = require('mongodb');
-const url = 'mongodb+srv://cats_project:cats_project@cluster0.6vwn25v.mongodb.net/?retryWrites=true&w=majority';
-const client = new MongoClient(url);
+const uri = 'mongodb+srv://cats_project:cats_project@cluster0.6vwn25v.mongodb.net/?retryWrites=true&w=majority';
+const client = new MongoClient(uri);
 let dbCollection;
 
 app.use(express.static(__dirname + '/public'));
