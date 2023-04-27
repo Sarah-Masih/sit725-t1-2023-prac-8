@@ -23,43 +23,43 @@ app.use(express.urlencoded({ extended: false }));
 
 function dbConnection(collectionName)
 {
-    client.connect(err =>
+    client.connect(error =>
     {
         dbCollection = client.db().collection(collectionName);
-        if(!err){
+        if(!error){
             console.log('DB Connected');
             console.log(dbCollection);
         }
         else{
-            console.error(err);
+            console.error(error);
         }
     });
 }
 
 app.post('/api/cats', (req, res) => {
     let cat = req.body;
-    insert(cat, (err, result=>{
-        if(err)
+    insert(cat, (error, result)=>{
+        if(error)
         {
-            res.json({statusCode:400, message:err});
+            res.json({statusCode:400, message:error});
         }
         else{
             res.json({statusCode:200, data: result, message:'cat successfully added'});
         }
-    }));
+    })
 });
 
 app.get('/api/cats',(req,res) => {
-    getAllCats((err, result) => {
-        if(err){
-            res.json({statusCode:400, message:err});
+    getAllCats((error, result) => {
+        if(error){
+            res.json({statusCode:400, message:error});
 
         }
         else{
-            res.json({StatusCode:200, data:result, message:'Successful'});
+            res.json({statusCode:200, data:result, message:'Successful'});
         }
     });
-})
+});
 
 function insert(cat, callback){
     dbCollection.insertOne(cat, callback);

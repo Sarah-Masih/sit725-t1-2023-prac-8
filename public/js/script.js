@@ -18,6 +18,7 @@ const submitForm = () => {
 }
 const getCats = () => {
     $.get('/api/cats', (res) => {
+        console.log(res);
         if(res.statusCode === 200)
         {
             addCards(res.data);
