@@ -6,6 +6,14 @@ const addCards = (items) => {
     });
 }
 
+const getProjects = () => {
+    $.get('/api/cats', (response)=>{
+        if(response.statusCode === 200) {
+            addCards(response.data);
+        }
+    });
+}
+
 const submitForm = () => {
     let formData = {};
     formData.title = $('#title').val();
@@ -14,8 +22,22 @@ const submitForm = () => {
     formData.description = $('#description').val();
 
     console.log('form data: ', formData);
-    addCat(formData);
+    addProjectToApp(formData);
+    //addCat(formData); MVC Refactoring
 }
+
+const addProjectToApp = (project) => {
+    $.ajax({
+        url:'/api/cats',
+        data:project,
+        type:'POST',
+        success: (result) => {
+            alert(result.message);
+            location.reload();
+        }
+    });
+}
+
 const getCats = () => {
     $.get('/api/cats', (res) => {
         console.log(res);
@@ -61,7 +83,8 @@ $(document).ready(function(){
     $('.materialboxed').materialbox();
     $('.modal').modal();
 
-    getCats();
+    //getCats();
+    getProjects();
 
 
     //addCards(cardList);
