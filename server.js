@@ -8,6 +8,8 @@ var app = express();
 //const client = new MongoClient(uri);
 //let dbCollection;
 
+require('./dbConnection');
+
 let router = require('./route/route');
 
 
