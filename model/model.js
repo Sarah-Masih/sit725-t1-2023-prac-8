@@ -9,4 +9,8 @@ const getCats = (callback) => {
     collection.find().toArray(callback);
 }
 
-module.exports = {insertCat, getCats}
+const remove = (cat, callback) => {
+    collection.deleteOne(cat, callback);
+}
+
+module.exports = {insertCat, getCats, remove}

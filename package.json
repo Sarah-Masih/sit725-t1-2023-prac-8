@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "mocha --reporter spec"
   },
   "keywords": [
     "JS"
@@ -13,8 +13,11 @@
   "author": "Sarah Masih",
   "license": "ISC",
   "dependencies": {
+    "chai": "^4.3.7",
     "express": "^4.18.2",
+    "mocha": "^10.2.0",
     "mongodb": "^4.4.1",
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.22",
+    "request": "^2.88.2"
   }
 }

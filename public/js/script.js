@@ -38,15 +38,29 @@ const addProjectToApp = (project) => {
     });
 }
 
+$(document).ready(function(){
+    $('.materialboxed').materialbox();
+    $('.modal').modal();
+
+    getProjects();
+
+    $('#formSubmit').click(()=>{
+        submitForm();
+    })
+});
+
+/*
 const getCats = () => {
     $.get('/api/cats', (res) => {
         console.log(res);
         if(res.statusCode === 200)
         {
             addCards(res.data);
+            print("successful code 200 reached")
         }
     });
 }
+*/
 
 
 const addCat = (cat) => {
